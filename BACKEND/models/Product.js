@@ -21,7 +21,7 @@ const schema = new mongoose.Schema({
     type: String,
     require: true
   },
-  store: {
+  stock: {
     type: Number,
     default: 0
   },

@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
 import connectDB from "./database/db.js";
-import userRoutes from "./routes/user.js";
 
 dotenv.config();
 
@@ -10,9 +9,15 @@ const port = process.env.PORT || 8000;
 
 // Middleware
 app.use(express.json());
+app.use("/uploads",express.static("uploads"))
 
+//user routes:
+import productRoutes from "./routes/product.js";
+import userRoutes from "./routes/user.js";
 // Routes
 app.use("/api/", userRoutes);
+app.use("/api/",productRoutes)
+
 
 // GET method
 app.get("/", (req, res) => {
